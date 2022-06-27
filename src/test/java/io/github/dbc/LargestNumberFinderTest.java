@@ -18,13 +18,13 @@ class LargestNumberFinderTest {
         largestNumberFinder = new LargestNumberFinder();
     }
 
-    // use reflection to check the name of the method as a test case
     @Test
     void shouldHaveCorrectMethodName() {
         try {
             Method findLargestNumber = largestNumberFinder
                     .getClass().getDeclaredMethod("findLargestNumber", int.class, int.class, int.class);
-            Assertions.assertEquals("findLargestNumber", findLargestNumber.getName());
+            Assertions.assertEquals("findLargestNumber", findLargestNumber.getName(),
+                    "The method name should be findLargestNumber");
         } catch (NoSuchMethodException e) {
             Assertions.fail("Method findLargestNumber() not found");
         }
@@ -35,7 +35,24 @@ class LargestNumberFinderTest {
         try {
             Method findLargestNumber = largestNumberFinder
                     .getClass().getDeclaredMethod("findLargestNumber", int.class, int.class, int.class);
-            Assertions.assertEquals(3, findLargestNumber.getParameterCount());
+            Assertions.assertEquals(3, findLargestNumber.getParameterCount(),
+                    "The method should have three parameters");
+        } catch (NoSuchMethodException e) {
+            Assertions.fail("Method findLargestNumber() not found");
+        }
+    }
+
+    @Test
+    void shouldHaveCorrectParameterTypes() {
+        try {
+            Method findLargestNumber = largestNumberFinder
+                    .getClass().getDeclaredMethod("findLargestNumber", int.class, int.class, int.class);
+            Assertions.assertEquals(int.class, findLargestNumber.getParameterTypes()[0],
+                    "The first parameter should be of type int");
+            Assertions.assertEquals(int.class, findLargestNumber.getParameterTypes()[1],
+                    "The second parameter should be of type int");
+            Assertions.assertEquals(int.class, findLargestNumber.getParameterTypes()[2],
+                    "The third parameter should be of type int");
         } catch (NoSuchMethodException e) {
             Assertions.fail("Method findLargestNumber() not found");
         }
@@ -46,13 +63,15 @@ class LargestNumberFinderTest {
         try {
             Method findLargestNumber = largestNumberFinder
                     .getClass().getDeclaredMethod("findLargestNumber", int.class, int.class, int.class);
-            Assertions.assertEquals(int.class, findLargestNumber.getReturnType());
+            Assertions.assertEquals(int.class, findLargestNumber.getReturnType(),
+                    "The method should return an int");
         } catch (NoSuchMethodException e) {
             Assertions.fail("Method findLargestNumber() not found");
         }
     }
 
-    // TODO: If all the other methods pass, then remove the @Disabled annotation and uncomment line number 77 to run this test
+    // TODO: If all the other methods pass, then remove the @Disabled annotation and uncomment line number
+    //  77 and 78 to run this test
     @Disabled
     @ParameterizedTest(name = "should return {0} when given {1}, {2}, {3}")
     @CsvSource(value = {
@@ -74,6 +93,7 @@ class LargestNumberFinderTest {
             "3, 3, 2, 3"
     })
     void shouldReturnCorrectValue(int expected, int num1, int num2, int num3) {
-        // Assertions.assertEquals(expected, largestNumberFinder.findLargestNumber(num1, num2, num3));
+//         Assertions.assertEquals(expected, largestNumberFinder.findLargestNumber(num1, num2, num3),
+//                 "The method should return " + expected);
     }
 }
