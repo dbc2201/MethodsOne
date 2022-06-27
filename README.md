@@ -30,8 +30,8 @@ The method should have the parts:
 Task
 ---
 
-1. Open the [source code file](src/main/java/io/github/dbc/) and complete the code.
-2. Open the [test case file](src/test/java/io/github/dbc/) and run the test cases to
+1. Open the [source code file](src/main/java/io/github/dbc/LargestNumberFinder.java) and complete the code.
+2. Open the [test case file](src/test/java/io/github/dbc/LargestNumberFinderTest.java) and run the test cases to
    check your code.
 
 ---
